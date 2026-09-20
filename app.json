@@ -1,0 +1,58 @@
+{
+  "expo": {
+    "name": "GreenRoots",
+    "slug": "greenroots",
+    "version": "1.0.0",
+    "scheme": "greenroots",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.greenroots.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0F5132",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.greenroots.app",
+      "permissions": ["CAMERA", "ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "GreenRoots uses the camera to capture tree verification photos and short health-education videos."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermissionText": "GreenRoots records the GPS location of each tree at the moment of verification to keep survival data trustworthy."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "GreenRoots needs access to your photos to attach plantation and verification images."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {}
+    }
+  }
+}
