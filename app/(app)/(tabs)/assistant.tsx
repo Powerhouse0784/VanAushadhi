@@ -92,7 +92,7 @@ export default function Assistant() {
           <AlertCard tone="info">{ASSISTANT_DISCLAIMER}</AlertCard>
         </View>
 
-        <View className="flex-row items-center gap-2 px-5 pb-4 pt-1">
+        <View className="flex-row items-center gap-2 px-5 pb-28 pt-1">
           <TextInput
             value={input}
             onChangeText={setInput}

@@ -45,7 +45,7 @@ export default function LibraryIndex() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFDF8" }} edges={["top"]}>
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 40 }}>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 130 }}>
         <ScreenHeader title="Explore Plants" subtitle="Traditional knowledge, clearly separated from scientific evidence" />
 
         <View className="px-5 mt-1">

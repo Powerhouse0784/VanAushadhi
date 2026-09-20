@@ -44,7 +44,7 @@ export default function MapScreen() {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFDF8" }} edges={["top"]}>
       <ScreenHeader title="Plantation Map" subtitle="Tap a pin to open a tree's digital ID" />
 
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 40 }}>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 130 }}>
         <View className="px-5">
           <ScrollView horizontal showsHorizontalScrollIndicator={false} className="mb-3">
             <Chip label="All projects" active={projectFilter === "all"} onPress={() => setProjectFilter("all")} />

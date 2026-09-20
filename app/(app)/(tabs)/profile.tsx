@@ -21,7 +21,7 @@ export default function Profile() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFDF8" }} edges={["top"]}>
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 40 }}>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 130 }}>
         <ScreenHeader title="Profile" subtitle={session?.name} />
 
         <View className="px-5">

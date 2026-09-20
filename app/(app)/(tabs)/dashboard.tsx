@@ -8,6 +8,7 @@ import ScreenHeader from "@/components/ScreenHeader";
 import StatCard from "@/components/StatCard";
 import { Card, SectionHeader } from "@/components/Primitives";
 import Button from "@/components/Button";
+import BotanicalAccent from "@/components/BotanicalAccent";
 import { DonutStat, BarChart, LineChart } from "@/components/Charts";
 import { DASHBOARD_STATS, SPECIES_SURVIVAL, MONTHLY_VERIFICATION_ACTIVITY, ORGANIZATION, PROJECTS } from "@/data/trees";
 import { useAuth } from "@/context/AuthContext";
@@ -17,13 +18,14 @@ export default function Dashboard() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFDF8" }} edges={["top"]}>
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 40 }}>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 130 }}>
         <ScreenHeader title="Impact Dashboard" subtitle={`${ORGANIZATION.name} · ${ORGANIZATION.city}`} />
 
         {/* Impact statement banner */}
         <View className="px-5 mt-2">
           <MotiView from={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "timing", duration: 500 }}>
-            <LinearGradient colors={["#0F2A17", "#22562F"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={{ borderRadius: 28, padding: 22 }}>
+            <LinearGradient colors={["#0F2A17", "#22562F"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={{ borderRadius: 28, padding: 22, overflow: "hidden" }}>
+              <BotanicalAccent size={170} style={{ position: "absolute", top: -24, right: -24 }} opacity={0.1} />
               <Text className="text-canopy-200 font-body-semibold text-xs uppercase tracking-wide">Instead of "trees planted"</Text>
               <Text className="font-display text-2xl text-white mt-2 leading-8">
                 {DASHBOARD_STATS.verifiedAlive.toLocaleString()} trees verified alive after 12 months.
