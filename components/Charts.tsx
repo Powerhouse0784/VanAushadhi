@@ -96,6 +96,8 @@ export function DonutStat({
   strokeWidth = 14,
   color = "#2C6E3B",
   trackColor = "#DBEFDE",
+  textColor = "#194023",
+  labelColor,
   label,
 }: {
   percent: number;
@@ -103,6 +105,11 @@ export function DonutStat({
   strokeWidth?: number;
   color?: string;
   trackColor?: string;
+  // Explicit colors rather than a `dark:` class — this component is used
+  // on both light cards and dark gradient banners, and its own theme
+  // context (not the device's dark-mode setting) decides which is legible.
+  textColor?: string;
+  labelColor?: string;
   label?: string;
 }) {
   const safePercent = Number.isFinite(percent) ? Math.min(Math.max(percent, 0), 100) : 0;
@@ -130,10 +137,10 @@ export function DonutStat({
         />
       </Svg>
       <View style={{ position: "absolute", alignItems: "center" }}>
-        <Text className="font-display text-canopy-950 dark:text-cream-100" style={{ fontSize: size * 0.19 }}>
+        <Text className="font-display" style={{ fontSize: size * 0.19, color: textColor }}>
           {safePercent.toFixed(1)}%
         </Text>
-        {label ? <Text className="text-xs text-canopy-700/70 dark:text-canopy-200/70">{label}</Text> : null}
+        {label ? <Text className="text-xs" style={{ color: labelColor ?? textColor, opacity: labelColor ? 1 : 0.7 }}>{label}</Text> : null}
       </View>
     </View>
   );

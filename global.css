@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* react-native-web renders Pressable/TextInput as focusable web elements,
+   which pick up the browser's default focus outline and mobile tap-highlight
+   color. Neither matches this app's own pressed/selected states (which are
+   already drawn explicitly via style/className), so they only ever showed up
+   as a stray outline or "extra white line" after tapping something. */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+*:focus {
+  outline: none;
+}

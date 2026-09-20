@@ -29,7 +29,16 @@ export default function Dashboard() {
                 {DASHBOARD_STATS.verifiedAlive.toLocaleString()} trees verified alive after 12 months.
               </Text>
               <View className="flex-row items-center gap-4 mt-4">
-                <DonutStat percent={DASHBOARD_STATS.survivalRate} size={92} strokeWidth={11} color="#8CCC99" trackColor="rgba(255,255,255,0.15)" label="survival" />
+                <DonutStat
+                  percent={DASHBOARD_STATS.survivalRate}
+                  size={92}
+                  strokeWidth={11}
+                  color="#8CCC99"
+                  trackColor="rgba(255,255,255,0.15)"
+                  textColor="#FFFFFF"
+                  labelColor="rgba(255,255,255,0.75)"
+                  label="survival"
+                />
                 <View className="flex-1">
                   <Text className="text-canopy-100/80 font-body text-sm leading-5">
                     Survival Rate = Verified Alive ÷ Total Registered × 100{"\n"}

@@ -102,18 +102,36 @@ export default function Login() {
               />
               <Text className="font-body-medium text-sm text-canopy-800 mb-2">I'm using GreenRoots as a...</Text>
               <View className="gap-2 mb-2">
-                {ROLES.map((r) => (
-                  <Pressable key={r.key} onPress={() => setRole(r.key)}>
-                    <View
-                      className={`rounded-2xl p-3.5 border ${
-                        role === r.key ? "border-canopy-600 bg-canopy-50" : "border-canopy-100"
-                      }`}
-                    >
-                      <Text className="font-body-semibold text-canopy-950">{r.label}</Text>
-                      <Text className="text-xs text-canopy-700/70 mt-0.5">{r.desc}</Text>
-                    </View>
-                  </Pressable>
-                ))}
+                {ROLES.map((r) => {
+                  const active = role === r.key;
+                  return (
+                    <Pressable key={r.key} onPress={() => setRole(r.key)} style={{ outlineStyle: "none" } as any}>
+                      <View
+                        className={`rounded-2xl p-3.5 border flex-row items-center gap-3 ${
+                          active ? "border-canopy-600 bg-canopy-50" : "border-canopy-100 bg-white"
+                        }`}
+                      >
+                        <View
+                          style={{
+                            width: 20,
+                            height: 20,
+                            borderRadius: 10,
+                            borderWidth: 2,
+                            borderColor: active ? "#2C6E3B" : "#DFCFAE",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          {active ? <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: "#2C6E3B" }} /> : null}
+                        </View>
+                        <View className="flex-1">
+                          <Text className="font-body-semibold text-canopy-950">{r.label}</Text>
+                          <Text className="text-xs text-canopy-700/70 mt-0.5">{r.desc}</Text>
+                        </View>
+                      </View>
+                    </Pressable>
+                  );
+                })}
               </View>
               <Button label="Continue" onPress={handleGuest} loading={loading} fullWidth />
             </>

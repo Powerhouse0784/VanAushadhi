@@ -5,7 +5,6 @@ import Svg, { Path, Rect, Circle } from "react-native-svg";
 import { useAuth } from "@/context/AuthContext";
 import { Badge } from "./Primitives";
 import BotanicalAccent from "./BotanicalAccent";
-import AppImage from "./AppImage";
 
 function QuickIcon({ onPress, children, label }: { onPress: () => void; children: React.ReactNode; label: string }) {
   return (
@@ -28,9 +27,6 @@ export default function ScreenHeader({ title, subtitle }: { title: string; subti
       <BotanicalAccent size={110} color="#2C6E3B" opacity={0.06} style={{ position: "absolute", top: -20, right: 40 }} />
       <View className="flex-1 pr-3">
         <View className="flex-row items-center gap-2">
-          <View style={{ width: 26, height: 26, borderRadius: 13, overflow: "hidden" }}>
-            <AppImage imageKey="logo-vanaushadhi" label="Logo" icon="tree" />
-          </View>
           <Text className="font-display text-2xl text-canopy-950 dark:text-cream-100">{title}</Text>
           {session?.role !== "visitor" ? <Badge label={session?.role ?? ""} color="#2C6E3B" /> : null}
         </View>

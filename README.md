@@ -61,6 +61,27 @@ judging never depends on live infrastructure.
 - Custom SVG charts, illustrated map, and QR codes — no fragile third-party
   chart library
 
+## ✅ Pre-submission checklist
+
+- **No API keys required.** Supabase and Gemini are both fully optional
+  (see `.env.example`) — leave `.env` unset and the app runs entirely on
+  local seed data, on-device AsyncStorage, and a safe rule-based assistant.
+  Nothing breaks, and no external service can go down mid-demo.
+- **Every image slot is wired up** — logo, all 15 plant photos, 3
+  before/after tree photo pairs, the landing hero image, and the
+  verification-capture preview. No placeholders remain (`lib/imageRegistry.ts`).
+- **App icon, splash screen, web favicon, and Android adaptive icon** all use
+  the vanAushadhi logo.
+- **Dashboard donut chart crash fixed** (was breaking on web).
+- **Theme pinned to light mode app-wide** so it looks correct regardless of
+  the judge's/tester's phone dark-mode setting.
+- All internal `@/...` imports and every `require()`'d image path were
+  checked and resolve correctly.
+- Not independently run here (no network in this sandbox) — please run
+  once yourself before submitting: `npm install --legacy-peer-deps && npx
+  expo start --web` (or `npx tsc --noEmit` for a type check). This project's
+  code was reviewed manually but not compiled end-to-end in this session.
+
 ## Getting started
 
 ```bash
