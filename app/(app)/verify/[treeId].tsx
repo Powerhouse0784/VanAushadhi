@@ -85,7 +85,7 @@ export default function VerifyTree() {
     addVerification({
       treeId: tree.id,
       volunteerName: session?.name ?? "Volunteer",
-      photoUrl: `tree-grown-${Math.floor(Math.random() * 6) + 1}`,
+      photoUrl: `tree-grown-${Math.floor(Math.random() * 3) + 1}`,
       latitude: coords?.lat ?? tree.latitude,
       longitude: coords?.lng ?? tree.longitude,
       timestamp: new Date().toISOString(),

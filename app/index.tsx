@@ -56,7 +56,9 @@ export default function Landing() {
         {/* NAV */}
         <View className="flex-row items-center justify-between px-6 pt-4 pb-2">
           <View className="flex-row items-center gap-2">
-            <Text className="text-2xl">🌳</Text>
+            <View style={{ width: 32, height: 32, borderRadius: 16, overflow: "hidden" }}>
+              <AppImage imageKey="logo-vanaushadhi" label="Logo" icon="tree" />
+            </View>
             <Text className="font-display text-canopy-950 text-lg">GreenRoots</Text>
           </View>
           <View className="flex-row gap-2">

@@ -6,6 +6,7 @@ import { MotiView } from "moti";
 import Button from "@/components/Button";
 import { Card } from "@/components/Primitives";
 import AlertCard from "@/components/AlertCard";
+import AppImage from "@/components/AppImage";
 import { useAuth, type UserRole } from "@/context/AuthContext";
 
 const ROLES: { key: UserRole; label: string; desc: string }[] = [
@@ -44,7 +45,9 @@ export default function Login() {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFDF8" }}>
       <ScrollView contentContainerStyle={{ padding: 24, paddingTop: 40 }}>
         <MotiView from={{ opacity: 0, translateY: 10 }} animate={{ opacity: 1, translateY: 0 }}>
-          <Text className="text-3xl">🌳</Text>
+          <View style={{ width: 56, height: 56, borderRadius: 28, overflow: "hidden" }}>
+            <AppImage imageKey="logo-vanaushadhi" label="Logo" icon="tree" />
+          </View>
           <Text className="font-display text-3xl text-canopy-950 mt-2">Welcome to GreenRoots</Text>
           <Text className="font-body text-canopy-800/70 mt-1">Sign in to verify trees, explore plant knowledge, or manage a project.</Text>
         </MotiView>

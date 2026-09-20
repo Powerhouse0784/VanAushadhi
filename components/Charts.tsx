@@ -105,30 +105,33 @@ export function DonutStat({
   trackColor?: string;
   label?: string;
 }) {
-  const radius = (size - strokeWidth) / 2;
+  const safePercent = Number.isFinite(percent) ? Math.min(Math.max(percent, 0), 100) : 0;
+  const center = size / 2;
+  const radius = Math.max((size - strokeWidth) / 2, 0);
   const circumference = 2 * Math.PI * radius;
-  const dash = (percent / 100) * circumference;
+  const dash = (safePercent / 100) * circumference;
 
   return (
     <View style={{ width: size, height: size, alignItems: "center", justifyContent: "center" }}>
       <Svg width={size} height={size}>
-        <Circle cx={size / 2} cy={size / 2} r={radius} stroke={trackColor} strokeWidth={strokeWidth} fill="none" />
+        <Circle cx={center} cy={center} r={radius} stroke={trackColor} strokeWidth={strokeWidth} fill="none" />
         <Circle
-          cx={size / 2}
-          cy={size / 2}
+          cx={center}
+          cy={center}
           r={radius}
           stroke={color}
           strokeWidth={strokeWidth}
           fill="none"
-          strokeDasharray={`${dash}, ${circumference}`}
+          strokeDasharray={`${dash} ${circumference}`}
           strokeLinecap="round"
-          rotation={-90}
-          origin={`${size / 2}, ${size / 2}`}
+          // Using an SVG transform string (rather than the rotation/origin
+          // props) so this renders identically on native and web.
+          transform={`rotate(-90 ${center} ${center})`}
         />
       </Svg>
       <View style={{ position: "absolute", alignItems: "center" }}>
         <Text className="font-display text-canopy-950 dark:text-cream-100" style={{ fontSize: size * 0.19 }}>
-          {percent.toFixed(1)}%
+          {safePercent.toFixed(1)}%
         </Text>
         {label ? <Text className="text-xs text-canopy-700/70 dark:text-canopy-200/70">{label}</Text> : null}
       </View>

@@ -110,8 +110,8 @@ infrastructure, copy `.env.example` to `.env` and fill in what you want.
 
 ## Image Placement Guide
 
-No image generation was used — every visual slot below renders a clean,
-on-brand placeholder until you drop in a real file. To add one:
+Every visual slot below renders a clean, on-brand placeholder until a real
+file is registered. To add or swap one:
 
 1. Save the image into `assets/images/`
 2. Add one line to `lib/imageRegistry.ts`:
@@ -120,12 +120,19 @@ on-brand placeholder until you drop in a real file. To add one:
    ```
 3. Reload — every screen using that key updates automatically.
 
+**Currently wired up:** the logo (`logo-vanaushadhi`), all 15 plant-library
+photos, 3 "before" sapling photos (`tree-sapling-1..3`), 3 "after" tree
+photos (`tree-grown-1..3`), `hero-forest-canopy`, and
+`verification-capture-preview`. Every image slot in the app now has a real
+photo — no placeholders remain.
+
 | Key | Used on | Suggested image | Suggested size |
 |---|---|---|---|
+| `logo-vanaushadhi` | Landing nav, in-app header, login screen | Brand logo | Square, transparent or light bg |
 | `hero-forest-canopy` | Landing page hero | Lush tree canopy, or volunteers planting trees | 1200×800 landscape |
 | `plant-<id>-1` (×15, see list below) | Library grid + plant detail | A clear photo of that specific plant/herb | 800×800 square |
-| `tree-sapling-1` … `tree-sapling-6` | Tree "before" photos | Young saplings, varied angles | 800×600 |
-| `tree-grown-1` … `tree-grown-6` | Tree "after"/latest + verification timeline | Mature trees, same varied angles | 800×600 |
+| `tree-sapling-1` … `tree-sapling-3` | Tree "before" photos | Young saplings/small plants, varied angles | 800×600 |
+| `tree-grown-1` … `tree-grown-3` | Tree "after"/latest + verification timeline | Mature trees, same varied angles | 800×600 |
 | `verification-capture-preview` | Volunteer verification flow, after capturing a photo | Any tree/field photo (placeholder for the live camera capture) | 800×600 |
 
 15 plant keys: `plant-tulsi-1`, `plant-neem-1`, `plant-aloevera-1`,
@@ -133,6 +140,10 @@ on-brand placeholder until you drop in a real file. To add one:
 `plant-guava-1`, `plant-pomegranate-1`, `plant-garlic-1`,
 `plant-cinnamon-1`, `plant-moringa-1`, `plant-lemon-1`,
 `plant-curryleaves-1`, `plant-ashwagandha-1`.
+
+> Tree photo rotation was reduced from 6 angles to 3 to match the 3
+> before/after photo pairs supplied (`tree-sapling-1..3` and
+> `tree-grown-1..3`).
 
 ## Ethical & safety guardrails (built in, not bolted on)
 

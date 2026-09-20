@@ -14,10 +14,19 @@ import {
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
 import { useFonts as useFraunces, Fraunces_600SemiBold } from "@expo-google-fonts/fraunces";
+import { colorScheme } from "nativewind";
 import { AuthProvider } from "@/context/AuthContext";
 import { AppDataProvider } from "@/context/AppDataContext";
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
+
+// GreenRoots currently ships one fully-designed theme (light). Several
+// screens pair hardcoded light background colors with Tailwind `dark:`
+// text/icon classes, so letting the OS's dark mode flip those classes on
+// its own produced light-on-light and low-contrast UI. Pinning the scheme
+// keeps every screen looking the way it was designed, regardless of the
+// device's system setting, until a real dark theme is built out.
+colorScheme.set("light");
 
 export default function RootLayout() {
   const [interLoaded] = useInter({ Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold });
